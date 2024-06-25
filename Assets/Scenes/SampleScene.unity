@@ -208,8 +208,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 561528576}
         m_TargetAssemblyTypeName: ChangeTexture, Assembly-CSharp
-        m_MethodName: TestChangeInUnityUI
-        m_Mode: 1
+        m_MethodName: ChnageTextureWithOutObject
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -308,6 +308,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &684546783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8661482966642056459, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+  m_PrefabInstance: {fileID: 871844050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &684546785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684546783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90688c9eb2a5f42aa88873f7ee1f0274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTexture: {fileID: 561528576}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +444,24 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &802305511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9146653361798984530, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+  m_PrefabInstance: {fileID: 871844050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &802305513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802305511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90688c9eb2a5f42aa88873f7ee1f0274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTexture: {fileID: 561528576}
 --- !u!1001 &871844050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,7 +533,22 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8216539777921189584, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1200246509}
+    - targetCorrespondingSourceObject: {fileID: 7877217891584609660, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2034835754}
+    - targetCorrespondingSourceObject: {fileID: 3439275191799977430, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1005089548}
+    - targetCorrespondingSourceObject: {fileID: 8661482966642056459, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684546785}
+    - targetCorrespondingSourceObject: {fileID: 9146653361798984530, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 802305513}
   m_SourcePrefab: {fileID: 100100000, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
 --- !u!1 &963194225
 GameObject:
@@ -636,6 +687,42 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1005089546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3439275191799977430, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+  m_PrefabInstance: {fileID: 871844050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005089548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005089546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90688c9eb2a5f42aa88873f7ee1f0274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTexture: {fileID: 561528576}
+--- !u!1 &1200246507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8216539777921189584, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+  m_PrefabInstance: {fileID: 871844050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1200246509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200246507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90688c9eb2a5f42aa88873f7ee1f0274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTexture: {fileID: 561528576}
 --- !u!1 &1497430234
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +870,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903961478}
   m_CullTransparentMesh: 1
+--- !u!1 &2034835752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7877217891584609660, guid: bafe2e38b92144c73982f9ac6e73a4cd, type: 3}
+  m_PrefabInstance: {fileID: 871844050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2034835754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034835752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90688c9eb2a5f42aa88873f7ee1f0274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTexture: {fileID: 561528576}
 --- !u!1 &2136081739
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2136081740
 MonoBehaviour:
   m_ObjectHideFlags: 0
