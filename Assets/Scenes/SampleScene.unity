@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 561528577}
   - component: {fileID: 561528576}
   m_Layer: 0
-  m_Name: Controller
+  m_Name: WallController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0c6b76e7f61d8694c9bfdf54a673d83d, type: 3}
   - {fileID: 2800000, guid: 2e78b954c1c565c4d8a0add77be30e29, type: 3}
   - {fileID: 2800000, guid: 5ab55e33a1b298d49bfaf5c1856e5328, type: 3}
+  ChangeTextureObject: {fileID: 802305511}
 --- !u!4 &561528577
 Transform:
   m_ObjectHideFlags: 0
