@@ -10,5 +10,6 @@ public class ObjectClick : MonoBehaviour
    public void OnMouseDown()
    {
       changeTexture.ChangeTextureObject = gameObject;
+        //changeTexture.ChangeTextureWithOutObject(UnityEngine.Random.Range(0, 8).ToString());
    }
 }

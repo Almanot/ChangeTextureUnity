@@ -28,5 +28,4 @@ public class ChangeTexture : MonoBehaviour
             renderer.material.color = Color.red;
         }
     }
-
 }
