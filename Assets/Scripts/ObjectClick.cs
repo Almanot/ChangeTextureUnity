@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class ObjectClick : MonoBehaviour
 {
-   public ChangeTexture changeTexture;
+    public bool allowHighlight = true;
+    public bool allowDraw = true;
 
    public void OnMouseDown()
    {
-      changeTexture.ChangeTextureObject = gameObject;
-        //changeTexture.ChangeTextureWithOutObject(UnityEngine.Random.Range(0, 8).ToString());
+        if (allowHighlight) ObjectHighlighter.instance.SelectTarget(gameObject);
+        if (LineDrawer.instance.drawable) LineDrawer.instance.EndDrawing();
+        else if (allowDraw) LineDrawer.instance.StartDrawing(gameObject);
    }
 }

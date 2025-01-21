@@ -2,86 +2,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class LineDrawer : MonoBehaviour
 {
     public bool drawable {get; private set;}
-    private Vector3 startPosition;
     private GameObject currentObject;
     private LineRenderer lineRenderer;
-    private int vertexIndex = 0;
+    private int pointsCount = 0;
+
+    public static LineDrawer instance;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
 
     private void FixedUpdate()
     {
         // Dont calculate if not actual
-        if (!drawable) return;
+        if (drawable) AddPoint();
+    }
 
+    private void AddPoint()
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
         {
-            // Create line renderer if it wasn`t before.
-            if (!lineRenderer)
+            // If cursor above selected object then add new points to list every frame.
+            if (hit.transform.gameObject != currentObject)
             {
-                lineRenderer = new GameObject("Line").AddComponent<LineRenderer>();
-                lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+                if (Input.GetMouseButtonDown(0)) {EndDrawing(); }
+                else return;
+            }
 
-                AddPoints(hit.point); // Create first line point from click position
-            }
-            else
+            if (pointsCount > 1 && lineRenderer.GetPosition(pointsCount - 1) == hit.point) return; // prevent adding dublicates to list
+                                                                          // will be fine change this check from point equalities to distance between points
+            if (!Input.GetKey(KeyCode.LeftShift))
             {
-                // If linerenderer exist, then add new points to list every frame.
-                AddPoints(hit.point);
+                // adding new points to line
+                // if shift key is pressed, only the last point will be changed.
+                lineRenderer.positionCount = ++pointsCount; 
             }
+            lineRenderer.SetPosition(pointsCount - 1, hit.point);
         }
     }
 
-    public void AllowDrawing()
+    public void StartDrawing(GameObject target)
     {
         drawable = true;
-    }
+        currentObject = target;
 
-    public void ProhibitDrawing()
-    {
-        drawable = false;
-    }
+        // Take linerenderer or addone
+        if (lineRenderer = currentObject.GetComponent<LineRenderer>()) { }
+        else lineRenderer = currentObject.AddComponent<LineRenderer>();
 
-    private void AddPoints(Vector3 point)
-    {
-        if (lineRenderer.GetPosition(vertexIndex - 1) == point) return; // prevent adding dublicates to list
-        lineRenderer.SetPosition(vertexIndex, point);
-        vertexIndex++;
-    }
-
-    private void StartDrawing(GameObject obj)
-    {
-        drawable = true;
-        currentObject = obj;
-
-        // Создаем LineRenderer для рисования линии
-        lineRenderer = new GameObject("Line").AddComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.05f; // Толщина линии в начале
-        lineRenderer.endWidth = 0.05f;   // Толщина линии в конце
-        lineRenderer.positionCount = 2; // Линия состоит из двух точек
+        // Change default values
+        lineRenderer.startWidth = 0.05f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default")); // Простая линия
         lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.red;
 
-        lineRenderer.SetPosition(0, startPosition);
-        lineRenderer.SetPosition(1, startPosition); // Вторая точка совпадает с первой
+        AddPoint();
     }
 
-    private void EndDrawing(Vector3 position)
+    public void EndDrawing()
     {
         drawable = false;
-
-        if (lineRenderer != null)
-        {
-            lineRenderer.SetPosition(1, position); // Завершаем линию на финальной точке
-        }
-
         currentObject = null;
         lineRenderer = null;
+        pointsCount = 0;
     }
 }
